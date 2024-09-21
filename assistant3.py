@@ -6,7 +6,7 @@ def stream_response(prompt):
     convo.append({'role': 'user', 'content': prompt})
     response = ''
     stream = ollama.chat(model='llama3.1', messages=convo, stream=True)
-    print('Assistant:')
+    print('\nASSISTANT:')
 
     for chunk in stream:
         content = chunk['message']['content']
@@ -18,5 +18,5 @@ def stream_response(prompt):
 
 
 while True:
-    prompt = input('You: ')
+    prompt = input('\nUSER: ')
     stream_response(prompt=prompt)

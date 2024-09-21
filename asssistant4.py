@@ -26,7 +26,7 @@ def stream_response(prompt):
     convo.append({'role': 'user', 'content': prompt})
     response = ''
     stream = ollama.chat(model='llama3.1', messages=convo, stream=True)
-    print('Assistant:')
+    print('\nASSISTANT:')
 
     for chunk in stream:
         content = chunk['message']['content']
@@ -69,7 +69,7 @@ def retrieve_embedding(prompt):
 create_vector_db(conversations=message_history)
 
 while True:
-    prompt = input('USER: \n')
+    prompt = input('\NUSER: \n')
     context = retrieve_embedding(prompt=prompt)
     prompt = f'USER PROMPT: {prompt} \nCONTEXT FROM EMBEDDING: {context}'
     stream_response(prompt=prompt)
