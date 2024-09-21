@@ -69,7 +69,7 @@ def retrieve_embedding(prompt):
 create_vector_db(conversations=message_history)
 
 while True:
-    prompt = input('\NUSER: \n')
+    prompt = input('\nUSER: \n')
     context = retrieve_embedding(prompt=prompt)
     prompt = f'USER PROMPT: {prompt} \nCONTEXT FROM EMBEDDING: {context}'
     stream_response(prompt=prompt)
