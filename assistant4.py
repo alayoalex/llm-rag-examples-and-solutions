@@ -61,7 +61,7 @@ def retrieve_embedding(prompt):
     prompt_embedding = response['embedding']
 
     vector_db = client.get_collection(name='conversations')
-    results = vector_db.query(query_embedding=[prompt_embedding], n_results=1)
+    results = vector_db.query(query_embeddings=[prompt_embedding], n_results=1)
     best_embedding = results['embeddings'][0][0]
 
     return best_embedding
