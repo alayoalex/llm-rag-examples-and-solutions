@@ -22,6 +22,7 @@ message_history = [
 ]
 convo = []
 
+
 def stream_response(prompt):
     convo.append({'role': 'user', 'content': prompt})
     response = ''
@@ -65,6 +66,7 @@ def retrieve_embedding(prompt):
     best_embedding = results['documents'][0][0]
 
     return best_embedding
+
 
 create_vector_db(conversations=message_history)
 
