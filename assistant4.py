@@ -40,7 +40,7 @@ def create_vector_db(conversations):
     vector_db_name = 'conversations'
     try:
         client.delete_collection(name=vector_db_name)
-    except: ValueError:
+    except ValueError:
         pass
 
     vector_db = client.create_collection(name=vector_db_name)
